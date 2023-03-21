@@ -1,0 +1,24 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.confirmar {
+    margin-top: v.$separacion;
+    .uptask {
+        @include m.textoDegradado(v.$indigo);
+    }
+    input[type="submit"] {
+        @include m.boton(v.$indigo, v.$blanco);
+        border-radius: .8rem;
+    }
+    .acciones {
+        justify-content: center;
+        a {
+            // color: v.$blanco;
+            // background-color: v.$indigo;
+            // &:hover {
+            //     color: darken(v.$indigo, 10);
+            // }
+            @include m.boton(v.$indigo, v.$blanco);
+            border-radius: .8rem;
+        }
+    }
+}

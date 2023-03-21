@@ -1,0 +1,43 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.formulario {
+    margin-top: 5rem;
+    .campo {
+        display: flex;
+        margin-bottom: 2rem;
+        align-items: center;
+        flex-direction: column;
+        @include m.tablet {
+            flex-direction: row;
+        }
+        label {
+            flex: 0 0 3rem;
+            @include m.tablet {
+                flex: 0 0 15rem;
+            }
+        }
+        input {
+            width: 100%;
+            @include m.tablet {
+                flex: 1;
+            }
+            border: 1px solid lighten(v.$gris, 40%);
+            padding: calc(v.$separacion / 4);
+            border-radius: 1rem;
+            background-color: lighten(v.$gris, 40%);
+            &:focus {
+                border: 1px solid v.$azul;
+                color: v.$azul;
+            }
+            &:disabled {
+                background-color: darken(v.$blanco, 10%);
+                // background-color: lighten(v.$negro, 30%);
+                color: v.$negro;
+                cursor: not-allowed;
+                &::selection {
+                    display: none;
+                }
+            }
+        }
+    }
+}

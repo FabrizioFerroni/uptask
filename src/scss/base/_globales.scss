@@ -1,0 +1,79 @@
+@use 'variables' as v;
+
+/* CLIENT-SPECIFIC STYLES */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.outnone {
+    outline: none;
+    box-shadow: 0 0 0 0 transparent;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+    outline: none;
+    box-shadow: 0 0 0 0 transparent;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    font-family: v.$fuente_textos;
+    font-size: 1.6rem;
+    min-height: 100%;
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenedor-sm {
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}

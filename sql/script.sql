@@ -1,0 +1,30 @@
+DROP DATABASE IF EXISTS `uptask`;
+CREATE DATABASE IF NOT EXISTS `uptask` DEFAULT CHARACTER SET utf8;
+USE `uptask`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(60) NOT NULL,
+  `apellido` VARCHAR(60) NOT NULL,
+  `email` VARCHAR(100) NOT NULL UNIQUE,
+  `password` VARCHAR(60) NOT NULL,
+  `confirmado` TINYINT(1) NOT NULL DEFAULT 0,
+  `token` VARCHAR(36) NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `proyectos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `proyecto` VARCHAR(255) NOT NULL,
+  `url` VARCHAR(255) NOT NULL,
+  `propietarioId` INT(11) NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_usuarios_propietarios` FOREIGN KEY (`propietarioId`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `tareas` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(255) NOT NULL,
+  `estado` TINYINT(1) NOT NULL DEFAULT 0,
+  `proyectoId` INT(11) NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_tareas_proyectos` FOREIGN KEY (`proyectoId`) REFERENCES `proyectos` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE = InnoDB;

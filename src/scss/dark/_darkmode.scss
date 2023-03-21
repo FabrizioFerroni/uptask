@@ -1,0 +1,144 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@media(prefers-color-scheme: dark) {
+    body {
+        background-color: v.$grisOscuroDark;
+    }
+    .alerta .cerrar {
+        color: v.$grisOscuroDark;
+    }
+    .tagline,
+    .formulario label,
+    span {
+        color: v.$blanco;
+    }
+    .descripcion-pagina,
+    .formulario .campo input,
+    .nombre-pagina {
+        color: v.$grisClaro;
+    }
+    .formulario .campo input {
+        background-color: lighten(v.$grisOscuroDark, 15%);
+        border: 1px solid lighten(v.$grisOscuroDark, 15%);
+    }
+    .sidebar {
+        @include m.tablet {
+            background-color: darken(v.$grisOscuroDark, 5%);
+        }
+        .sidebar-nav a {
+            &.actual {
+                background-color: v.$naranja;
+            }
+            &:hover {
+                background-color: v.$naranja;
+            }
+        }
+    }
+    .barra-mobile,
+    .barra {
+        background-color: darken(v.$grisOscuroDark, 7%);
+    }
+    .barra {
+        p {
+            color: v.$grisClaro;
+            span {
+                color: v.$naranja;
+            }
+        }
+        .cerrar-sesion {
+            @include m.boton(v.$naranja, v.$blanco);
+            font-size: 1.4rem;
+            padding: 1rem;
+            border-radius: .5rem;
+        }
+    }
+    .filtros {
+        background-color: lighten(v.$grisOscuroDark, 10%);
+        h2,
+        label {
+            color: v.$grisClaro;
+        }
+        input[type="radio"] {
+            accent-color: v.$naranja;
+        }
+    }
+    .dashboard {
+        background-color: v.$grisOscuroDark;
+        .enlace {
+            color: v.$grisClaro;
+            &:hover {
+                color: darken(v.$grisClaro, 20%);
+            }
+        }
+        .formulario input:not([type="submit"]) {
+            background-color: lighten(v.$grisOscuroDark, 20%);
+            border: 1px solid lighten(v.$grisOscuroDark, 20%);
+            &:focus {
+                color: v.$naranja;
+                border: 1px solid v.$naranja;
+            }
+        }
+        .formulario input[type="submit"] {
+            @include m.boton(v.$naranja, v.$blanco);
+            border-radius: .5rem;
+            padding: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+    }
+    .listado-proyectos .proyecto {
+        background-color: lighten(v.$grisOscuroDark, 20%);
+        &:hover {
+            background-color: lighten(v.$grisOscuroDark, 15%);
+        }
+    }
+    .listado-tareas .tarea {
+        background-color: lighten(v.$grisOscuroDark, 10%);
+        border: none;
+        border-radius: .5rem;
+        p {
+            color: v.$grisClaro;
+        }
+    }
+    .modal .formulario {
+        background-color: v.$grisOscuroDark;
+        input[type="text"] {
+            background-color: lighten(v.$grisOscuroDark, 20%);
+            border: 1px solid lighten(v.$grisOscuroDark, 20%);
+            &:focus {
+                color: v.$naranja;
+                border: 1px solid v.$naranja;
+            }
+        }
+        legend {
+            color: v.$grisClaro;
+        }
+        .cerrar-modal {
+            @include m.boton(lighten(v.$grisOscuroDark, 20%), v.$blanco);
+            border-radius: .5rem;
+            order: 0;
+        }
+    }
+    .contenedor-nueva-tarea .agregar-tarea {
+        @include m.boton(darken(v.$naranja, 20%), v.$blanco);
+        border-radius: .5rem;
+        border: none;
+        padding: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+    .crear .formulario .campo input,
+    .login .formulario .campo input,
+    .olvide .formulario .campo input,
+    .reestablecer .formulario .campo input {
+        &:focus {
+            color: v.$naranja;
+            border: 1px solid v.$naranja;
+        }
+        &::selection {
+            background-color: v.$naranja;
+        }
+    }
+}
